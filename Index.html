@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy App</title>
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Reset CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Giphy Search</h1>
+
+        <div id="buttons-view"></div>
+
+        <form id="giphy-form">
+            <label for="giphy-input">Add a New Search Topic</label>
+            <input type="text" id="giphy-input">
+
+            <br>
+
+            <input id="add-giphy" type="submit" value="Add a New Search Topic">
+        </form>
+    </div>
+
+<script>
+
+    var apiKey = "rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr"
+
+    function buttonCreator(str) {
+        $("<buttom>" + str + "</button").appendTo("#container");
+    }
+
+</script>
+</body>
+
+</html>
