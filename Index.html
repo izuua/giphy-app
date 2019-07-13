@@ -18,6 +18,11 @@
         input {
           margin: 10px;
         }
+
+        .giphy {
+            margin: 10px;
+        }
+
       </style>
 </head>
 
@@ -55,18 +60,44 @@
             button.text(str);
             $(button).appendTo("#buttons-view");
             // $("<button class=giphy-button data-name="+str+">"+"BUTTON").appendTo("#buttons-view"); //This seems to be working incorrectly
-            console.log(str);
         })
 
     }
 
+
+
     function displayGiphys() { //function to display gifs
+        console.log("Button working");
         $("#giphy-view").empty();
+
         var giphyTopic = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr&q=" + giphyTopic + "&limit=10&offset=0&rating=PG-13&lang=en"
+        // var queryURL = ;
+
+        $.ajax({
+            url: "https://api.giphy.com/v1/gifs/search?api_key=rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr&q=" + giphyTopic + "&limit=10&offset=0&rating=PG-13&lang=en",
+            method: "GET"
+        }).then(function(response) {
+            var results = response.data;
+            
+            for (i =0; i < results.length; i++) {
+                $("<img class=giphy src="+results[i].images.fixed_width.url+">").appendTo("#giphy-view");
+                console.log(results[i].images.fixed_width.url)
+            }
+        })
 
     }
 
+    $("#add-giphy").on("click", function(event) { //adds a new topic
+        event.preventDefault();
+
+        console.log($("#giphy-input").val().trim());
+        giphyTopics.push($("#giphy-input").val().trim());
+
+        $("#add-giphy").text(""); //resets the search text after you hit it
+        renderButtons();
+    })
+
+    $(document).on("click", ".giphy-button", displayGiphys);
 
     renderButtons();
 
