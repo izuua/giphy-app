@@ -10,6 +10,15 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+          margin: 10px;
+        }
+      </style>
 </head>
 
 <body>
@@ -27,15 +36,39 @@
 
             <input id="add-giphy" type="submit" value="Add a New Search Topic">
         </form>
+
+        <div id="giphy-view"></div>
     </div>
 
 <script>
 
     var apiKey = "rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr"
+    var giphyTopics = ["Twilight Sparkle", "Rarity", "Pinkie Pie", "Applejack", "Rainbow Dash", "Fluttershy"]
 
-    function buttonCreator(str) {
-        $("<buttom>" + str + "</button").appendTo("#container");
+    function renderButtons(str) { //function to render the buttons
+        $("#buttons-view").empty();
+
+        giphyTopics.forEach(function(str) { //goes through the array and creates a button for each giphy topic
+            var button = $("<button>");
+            button.addClass("giphy-button");
+            button.attr("data-name", str);
+            button.text(str);
+            $(button).appendTo("#buttons-view");
+            // $("<button class=giphy-button data-name="+str+">"+"BUTTON").appendTo("#buttons-view"); //This seems to be working incorrectly
+            console.log(str);
+        })
+
     }
+
+    function displayGiphys() { //function to display gifs
+        $("#giphy-view").empty();
+        var giphyTopic = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr&q=" + giphyTopic + "&limit=10&offset=0&rating=PG-13&lang=en"
+
+    }
+
+
+    renderButtons();
 
 </script>
 </body>
