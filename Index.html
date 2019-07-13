@@ -9,7 +9,8 @@
     <!-- Reset CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <!-- Added a link to Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
 
     <style type="text/css">
         button,
@@ -42,7 +43,9 @@
             <input id="add-giphy" type="submit" value="Add a New Search Topic">
         </form>
 
-        <div id="giphy-view"></div>
+
+        <div id="giphy-view">
+        </div>
     </div>
 
 <script>
@@ -64,14 +67,24 @@
 
     }
 
+    function giphyAnimate() { //function to animate or stop the gif when clicked
+        console.log("giphy click working");
+        if ($(this).attr("data-state") === "still") {
+            $(this).attr("data-state", "animate");
+            $(this).attr("src", $(this).attr("data-animate"));
+        } else {
+            $(this).attr("data-state", "still");
+            $(this).attr("src", $(this).attr("data-still"));
+        }
+    }
 
 
     function displayGiphys() { //function to display gifs
-        console.log("Button working");
         $("#giphy-view").empty();
 
         var giphyTopic = $(this).attr("data-name");
-        // var queryURL = ;
+        
+        $("<h3>Click to animate</h3>").appendTo("#giphy-view");
 
         $.ajax({
             url: "https://api.giphy.com/v1/gifs/search?api_key=rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr&q=" + giphyTopic + "&limit=10&offset=0&rating=PG-13&lang=en",
@@ -80,12 +93,15 @@
             var results = response.data;
             
             for (i =0; i < results.length; i++) {
-                $("<img class=giphy src="+results[i].images.fixed_width.url+">").appendTo("#giphy-view");
-                console.log(results[i].images.fixed_width.url)
+                $("<div>Rating: "+results[i].rating+"</div>").appendTo("#giphy-view");
+
+                $("<img src="+results[i].images.fixed_width_still.url+" class=giphy data-still="+results[i].images.fixed_width_still.url+" data-animate="+results[i].images.fixed_width.url+" data-state=still>").appendTo("#giphy-view");
             }
         })
-
     }
+
+    //results[i].images.fixed_width.url for animated
+    //results[i].images.fixed_width_still.url
 
     $("#add-giphy").on("click", function(event) { //adds a new topic
         event.preventDefault();
@@ -97,7 +113,11 @@
         renderButtons();
     })
 
+
+
     $(document).on("click", ".giphy-button", displayGiphys);
+
+    $(document).on("click", ".giphy", giphyAnimate);
 
     renderButtons();
 
