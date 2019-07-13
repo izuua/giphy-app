@@ -9,7 +9,7 @@
     <!-- Reset CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <!-- Added a link to Bootstrap-->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
 
     <style type="text/css">
@@ -43,9 +43,11 @@
             <input id="add-giphy" type="submit" value="Add a New Search Topic">
         </form>
 
-
-        <div id="giphy-view">
+        <div class="giphy-container">
+            <h3>Click to animate</h3>
+                <div id="giphy-view" class="row">
         </div>
+
     </div>
 
 <script>
@@ -81,10 +83,9 @@
 
     function displayGiphys() { //function to display gifs
         $("#giphy-view").empty();
+        $(".giphy-container").show();
 
         var giphyTopic = $(this).attr("data-name");
-        
-        $("<h3>Click to animate</h3>").appendTo("#giphy-view");
 
         $.ajax({
             url: "https://api.giphy.com/v1/gifs/search?api_key=rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr&q=" + giphyTopic + "&limit=10&offset=0&rating=PG-13&lang=en",
@@ -93,9 +94,11 @@
             var results = response.data;
             
             for (i =0; i < results.length; i++) {
-                $("<div>Rating: "+results[i].rating+"</div>").appendTo("#giphy-view");
+                var container = $("<container class=col-sm-4>")
+                $(container).appendTo("#giphy-view");
+                $("<div>Rating: "+results[i].rating+"</div>").appendTo(container);
 
-                $("<img src="+results[i].images.fixed_width_still.url+" class=giphy data-still="+results[i].images.fixed_width_still.url+" data-animate="+results[i].images.fixed_width.url+" data-state=still>").appendTo("#giphy-view");
+                $("<img src="+results[i].images.fixed_width_still.url+" class=giphy data-still="+results[i].images.fixed_width_still.url+" data-animate="+results[i].images.fixed_width.url+" data-state=still>").appendTo(container);
             }
         })
     }
@@ -118,6 +121,8 @@
     $(document).on("click", ".giphy-button", displayGiphys);
 
     $(document).on("click", ".giphy", giphyAnimate);
+
+    $(".giphy-container").hide();
 
     renderButtons();
 
