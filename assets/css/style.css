@@ -3,7 +3,7 @@ button,
         form,
         input {
           margin: 10px;
-          color: white;
+          color: black;
         }
 
         .giphy {
@@ -20,6 +20,6 @@ button,
         }
 
         body {
-            background-color: #ffb6c1;
-            /* background-image:url("assets/images/pink_rice.png"); */
+            /* background-color: #ffb6c1; */
+            background-image: url("../images/pink_rice.png");
         }
