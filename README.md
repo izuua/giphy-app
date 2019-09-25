@@ -1,4 +1,4 @@
-# My Little Pony giphy-app
+# My Little Pony Giphy App
 A cool app that displays MLP gifs from the giphy api!
 
 # Instructions
