@@ -1,2 +1,6 @@
-# giphy-app
-A cool app that displays gifs from the giphy api!
+# My Little Pony giphy-app
+A cool app that displays MLP gifs from the giphy api!
+
+# Instructions
+*Click one of the pony buttons to receive gifs for that pony
+*Type in a new topic and click to add it
