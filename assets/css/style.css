@@ -1,25 +1,37 @@
 button,
-        div,
-        form,
-        input {
+    div,
+    form,
+    input,
+    h1,
+    h2,
+    h3,
+    label {
           margin: 10px;
           color: black;
-        }
+    }
 
-        .giphy {
+    h1 {
+        margin-left: 20px;
+    }
+
+    .giphy {
             margin: 10px;
-        }
+    }
 
-        button, #add-giphy {
+    button, #add-giphy {
             background-color: #ff1493;
             color: white;
-        }
+    }
         
-        #giphy-input {
+    #giphy-input {
             color: black;
-        }
+    }
 
-        body {
+    body {
             /* background-color: #ffb6c1; */
             background-image: url("../images/pink_rice.png");
-        }
+    }
+
+    img {
+        margin-left: 10px;
+    }
