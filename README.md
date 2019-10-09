@@ -1,5 +1,5 @@
 # My Little Pony Giphy App
-A cool app that displays MLP gifs from the giphy api!
+A cute app that displays MLP gifs from the giphy api!
 
 # Instructions
 - Click one of the pony buttons to receive gifs for that pony
