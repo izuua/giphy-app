@@ -6,8 +6,8 @@ button,
     h2,
     h3,
     label {
-          margin: 10px;
-          color: black;
+        margin: 10px;
+        color: black;
     }
 
     h1 {
@@ -19,17 +19,19 @@ button,
     } */
 
     button, #add-giphy {
-            background-color: #ff1493;
-            color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #ff1493;
+        color: white;
     }
         
     #giphy-input {
-            color: black;
+        color: black;
     }
 
     body {
-            /* background-color: #ffb6c1; */
-            background-image: url("../images/pink_rice.png");
+        /* background-color: #ffb6c1; */
+        background-image: url("../images/pink_rice.png");
     }
 
     img {
