@@ -1,39 +1,44 @@
 button,
-    div,
-    form,
-    input,
-    h1,
-    h2,
-    h3,
-    label {
-        margin: 10px;
-        color: black;
+div,
+form,
+input,
+h1,
+h2,
+h3,
+label {
+    margin: 10px;
+    color: black;
     }
 
-    h1 {
-        margin-left: 20px;
-    }
+h1 {
+    margin-left: 20px;
+}
 
-    /* .giphy {
-            margin: 10px;
-    } */
+/* .giphy {
+     margin: 10px;
+} */
 
-    button, #add-giphy {
-        padding-left: 10px;
-        padding-right: 10px;
-        background-color: #ff1493;
-        color: white;
-    }
+label {
+    margin-bottom: 20px;
+}
+
+button, #add-giphy {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ff1493;
+    color: white;
+}
         
-    #giphy-input {
-        color: black;
-    }
+#giphy-input {
+    color: black;
+}
 
-    body {
-        /* background-color: #ffb6c1; */
-        background-image: url("../images/pink_rice.png");
-    }
+body {
+    /* background-color: #ffb6c1; */
+    background-image: url("../images/pink_rice.png");
+}
 
-    img {
-        margin-left: 10px;
-    }
+img {
+    margin-left: 10px;
+}
+

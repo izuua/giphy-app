@@ -16,7 +16,7 @@ function renderButtons(str) { //function to render the buttons
 }
 
 function giphyAnimate() { //function to animate or stop the gif when clicked
-    console.log("giphy click working");
+    // console.log("giphy click working");
     if ($(this).attr("data-state") === "still") {
         $(this).attr("data-state", "animate");
         $(this).attr("src", $(this).attr("data-animate"));
@@ -34,7 +34,7 @@ function displayGiphys() { //function to display gifs
     var giphyTopic = $(this).attr("data-name");
 
     $.ajax({
-        url: "https://api.giphy.com/v1/gifs/search?api_key=rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr&q=" + giphyTopic + "&limit=10&offset=0&rating=PG-13&lang=en",
+        url: "https://api.giphy.com/v1/gifs/search?api_key=rRXbzSTaRhDPan5iHyzLEm1l33aqF5Jr&q=" + giphyTopic + "&limit=20&offset=0&rating=PG-13&lang=en",
         method: "GET"
     }).then(function(response) {
         var results = response.data;
@@ -54,11 +54,20 @@ function displayGiphys() { //function to display gifs
 
 $("#add-giphy").on("click", function(event) { //adds a new topic
     event.preventDefault();
+    let newSubject = $("#giphy-input").val().trim();
 
-    console.log($("#giphy-input").val().trim());
-    giphyTopics.push($("#giphy-input").val().trim());
+    if (!newSubject) {
+        return alert("Search Topic can't be blank!")
+    }
 
-    $("#add-giphy").text(""); //resets the search text after you hit it
+    console.log(newSubject)
+
+    // console.log($("#giphy-input").val().trim());
+    // giphyTopics.push($("#giphy-input").val().trim());
+    giphyTopics.push(newSubject);
+
+    // $("#add-giphy").text(""); 
+    $("#giphy-form")[0].reset(); //resets the search text after you hit it
     renderButtons();
 })
 
