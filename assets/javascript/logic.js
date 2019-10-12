@@ -42,7 +42,7 @@ function displayGiphys() { //function to display gifs
         for (i =0; i < results.length; i++) {
             var container = $("<container class=col-sm-4>")
             $(container).appendTo("#giphy-view");
-            $("<div>Rating: "+results[i].rating+"</div>").appendTo(container);
+            $("<div class='rating'>Rating: "+results[i].rating+"</div>").appendTo(container);
 
             $("<img src="+results[i].images.fixed_width_still.url+" class=giphy data-still="+results[i].images.fixed_width_still.url+" data-animate="+results[i].images.fixed_width.url+" data-state=still>").appendTo(container);
         }

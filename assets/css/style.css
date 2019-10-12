@@ -14,9 +14,15 @@ h1 {
     margin-left: 20px;
 }
 
-/* .giphy {
+.rating {
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+/* giphy class is no longer being used 
+.giphy { 
      margin: 10px;
-} */
+}*/
 
 label {
     margin-bottom: 20px;
@@ -40,9 +46,10 @@ body {
 
 img {
     margin-left: 10px;
+    margin-bottom: 15px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     img {
         width: 150px;
     }
@@ -50,6 +57,21 @@ img {
 
 @media only screen and (max-width: 575px) {
     img {
-        width: 300px;
+        width: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+button,
+div,
+form,
+input,
+h1,
+h2,
+h3,
+label,
+.rating {
+    text-align: center;
     }
 }
