@@ -1,5 +1,14 @@
 button,
 div,
+h1,
+h2,
+h3,
+.rating {
+    text-align: center;
+}
+
+button,
+div,
 form,
 input,
 h1,
@@ -10,8 +19,7 @@ label,
 #giphy-input {
     margin: 10px;
     color: black;
-    text-align: center;
-    }
+}
 
 h1 {
     margin-left: 20px;
@@ -36,7 +44,8 @@ button, #add-giphy {
     padding-right: 10px;
     background-color: #ff1493;
     color: white;
-}     
+    width: 200px;
+}
 
 body {
     /* background-color: #ffb6c1; */
