@@ -46,6 +46,8 @@ button, #add-giphy {
     background-color: #ff1493;
     color: white;
     width: 200px;
+    height: 35px;
+    /* margin: 15px; */
 }
 
 body {
