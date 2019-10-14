@@ -40,7 +40,8 @@ label {
     margin-bottom: 20px;
 }
 
-button, #add-giphy {
+button, 
+#add-giphy {
     padding-left: 10px;
     padding-right: 10px;
     background-color: #ff1493;
